@@ -1,4 +1,7 @@
 # One way to add switches to scripts
+# Usage: python optionparser-test.py -f
+
+# Thanks to:
 # http://www.alexonlinux.com/pythons-optparse-for-human-beings
 
 from optparse import OptionParser
