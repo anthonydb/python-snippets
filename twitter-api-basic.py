@@ -6,7 +6,7 @@
 # Use the requests module
 import requests
 
-# Ppen url for API
+# Open url for API
 #j = requests.get('https://twitter.com/statuses/public_timeline.json')
 j = requests.get('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=anthonydb')
 
