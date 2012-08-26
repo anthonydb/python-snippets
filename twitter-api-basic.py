@@ -1,6 +1,6 @@
 # Hit the Twitter API and pull either the public timeline or a user 
 # timeline, and then print a selection of data.
-# UTF encording is necessary especially when dealing with public
+# UTF-8 encoding is necessary especially when dealing with public
 # timeline.
 
 # Use the requests module
