@@ -15,6 +15,7 @@ names_list = [
 # API base URL
 base_url = 'https://graph.facebook.com/'
 
+
 # Function to add row to accounts table
 def insert_db(handle, likes, talking):
     conn = sqlite3.connect('social_data.db')
@@ -35,7 +36,7 @@ else:
 # Create the table if it's not in the db
 conn = sqlite3.connect('social_data.db')
 cur = conn.cursor()
-cur.execute('''CREATE TABLE IF NOT EXISTS fbaccounts 
+cur.execute('''CREATE TABLE IF NOT EXISTS fbaccounts
     (FetchDate Date, Handle Text, Likes Integer, Talking Integer)
     ''')
 conn.commit()
@@ -43,10 +44,10 @@ conn.close()
 
 # Iterate over handles and hit the API with each
 for user in names_list:
-    url = base_url + user 
+    url = base_url + user
     print 'Fetching ' + user
     response = requests.get(url)
-    profile = response.json
+    profile = response.json()
     handle = profile['name']
     likes = profile['likes']
     talking = profile['talking_about_count']

@@ -1,4 +1,4 @@
-# Hit the Twitter API and pull either the public timeline or a user 
+# Hit the Twitter API and pull either the public timeline or a user
 # timeline, and then print a selection of data.
 # UTF-8 encoding is necessary especially when dealing with public
 # timeline.
@@ -11,8 +11,8 @@ import requests
 j = requests.get('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=anthonydb')
 
 # Use requests' json method and iterate through range
-tweets = j.json
-for x in range(0,5):
+tweets = j.json()
+for x in range(0, 5):
     print x
     print 'Name: ' + tweets[x]['user']['name'].encode('UTF-8')
     print 'Lang: ' + tweets[x]['user']['lang'].encode('UTF-8')
@@ -22,7 +22,7 @@ for x in range(0,5):
     #print ''
 
 # uncomment this section to print to file
-#tweets = j.json
+#tweets = j.json()
 #jf = open('jsonoutfile.txt', 'wb')
 #print >> jf, tweets[0]
 #jf.close()
