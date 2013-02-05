@@ -20,7 +20,7 @@ for rownum in range(1, sh.nrows):
 
     cars_list.append(cars)
 
-# Serialize the dict to JSON
+# Serialize the list of dicts to JSON
 j = json.dumps(cars_list)
 
 # Write to file
