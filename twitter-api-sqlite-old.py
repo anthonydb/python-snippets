@@ -1,4 +1,6 @@
-# Fetch Twitter profile details from Twitter API into a SQLite DB 
+# DEPRECATED // Uses old Twitter API that is deprecated.
+
+# Fetch Twitter profile details from Twitter API into a SQLite DB
 
 import requests
 import sqlite3
