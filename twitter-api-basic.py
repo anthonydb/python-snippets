@@ -4,25 +4,27 @@
 # timeline.
 
 # Use the requests module
-import requests
+import twitter
 
-# Open url for API
-j = requests.get('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=anthonydb')
+api = twitter.Api(consumer_key='your-consumer-key',
+                  consumer_secret='your-consumer-secret',
+                  access_token_key='your-access-token-key',
+                  access_token_secret='your-access-token-secret')
 
-# Use requests' json method and iterate through range
-tweets = j.json()
-for x in range(0, 5):
-    print x
-    print 'Name: ' + tweets[x]['user']['name'].encode('UTF-8')
-    print 'Lang: ' + tweets[x]['user']['lang'].encode('UTF-8')
-    print 'Handle: ' + tweets[x]['user']['screen_name'].encode('UTF-8')
-    print 'Description: ' + tweets[x]['user']['description'].encode('UTF-8')
-    print 'Tweeted: ' + tweets[x]['text'].encode('UTF-8') + '\n'
-    #print ''
+# set a handle
+handle = 'anthonydb'
 
-# uncomment this section to print to file
-#tweets = j.json()
-#jf = open('jsonoutfile.txt', 'wb')
-#print >> jf, tweets[0]
-#jf.close()
+# Get some info on a user
+user = api.GetUser(handle)
+print user.GetName()
+print user.GetFollowersCount()
+print user.GetDescription()
 
+
+# get a user timeline
+statuses = api.GetUserTimeline('usatoday', count=1)
+print [s.text for s in statuses]
+
+# get a user timeline
+#statuses = api.GetPublicTimeline()
+#print [s.text for s in statuses]
