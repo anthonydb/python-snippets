@@ -26,3 +26,4 @@ print user.GetUrl()
 # get a user timeline
 statuses = api.GetUserTimeline(screen_name='usatoday', count=1)
 print [s.text for s in statuses]
+
