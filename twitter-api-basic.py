@@ -6,10 +6,10 @@
 # Use the requests module
 import twitter
 
-api = twitter.Api(consumer_key='RtrhKyhOal08VTHWVlEPKw',
-                  consumer_secret='vb7fgiNSiF4x2zZIek2yGPxQfzJgQO6dRYoUeiuhBg',
-                  access_token_key='18682941-4hd33e9dtYVWDScSyhc0dx9AVl7pQ4s7V2EbV8zjV',
-                  access_token_secret='whz6Qc3MUWUtOMqBCr3UhiZ1LiyPahkTiYnD52OWBeQ')
+api = twitter.Api(consumer_key='your-consumer-key',
+                  consumer_secret='your-consumer-secret',
+                  access_token_key='your-access-token-key',
+                  access_token_secret='your-access-token-secret')
 
 # set a handle
 handle = 'anthonydb'
