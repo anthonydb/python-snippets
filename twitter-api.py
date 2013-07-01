@@ -3,7 +3,6 @@
 # UTF-8 encoding is necessary especially when dealing with public
 # timeline.
 
-# Use the requests module
 import twitter
 
 api = twitter.Api(consumer_key='your-consumer-key',
