@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-# Hit the Twitter API and pull either the public timeline or a user
-# timeline, and then print a selection of data.
-# UTF-8 encoding is necessary especially when dealing with public
-# timeline.
-=======
+
 # Use the python-twitter library to authenticate with the Twitter API,
 # fetch a user, and then print a selection of data. After that, fetch
 # a user timeline and print some statuses.
->>>>>>> f5c2b760789d7ff6f416cec245b696d37893ae3e
 
 import twitter
 
