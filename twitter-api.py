@@ -1,7 +1,6 @@
-# Hit the Twitter API and pull either the public timeline or a user
-# timeline, and then print a selection of data.
-# UTF-8 encoding is necessary especially when dealing with public
-# timeline.
+# Use the python-twitter library to authenticate with the Twitter API,
+# fetch a user, and then print a selection of data. After that, fetch
+# a user timeline and print some statuses.
 
 import twitter
 
@@ -23,6 +22,6 @@ print user.GetStatusesCount()
 print user.GetUrl()
 
 # get a user timeline
-statuses = api.GetUserTimeline(screen_name='usatoday', count=1)
+statuses = api.GetUserTimeline(screen_name='pokjournal', count=1)
 print [s.text for s in statuses]
 
