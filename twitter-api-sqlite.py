@@ -49,7 +49,7 @@ conn.close()
 for handle in handles_list:
     print 'Fetching @' + handle
     try:
-        user = api.GetUser(handle)
+        user = api.GetUser(screen_name=handle)
         followers = user.GetFollowersCount()
         description = user.GetDescription()
         insert_db(handle, followers, description)
