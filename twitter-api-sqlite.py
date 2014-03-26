@@ -1,5 +1,3 @@
-# Fetch Twitter profile details from Twitter API into a SQLite DB
-
 import twitter
 import sqlite3
 import os
@@ -12,20 +10,20 @@ api = twitter.Api(consumer_key='your-key',
                   access_token_secret='your-token-secret')
 
 # These are the accounts for which you will fetch data
+# It's a list of lists, with a category added for each handle
 handles_list = [
-    'chrisschnaars',
-    'anthonydb',
-    'usatoday'
+    ['chrisschnaars', 'journalist'],
+    ['anthonydb', 'journalist'],
+    ['usatoday', 'newsroom']
 ]
 
-
 # Function to add row to accounts table
-def insert_db(handle, followers, description):
+def insert_db(handle, category, followers, description):
     conn = sqlite3.connect('social_data2.db')
     cur = conn.cursor()
     cur.execute('''
-        INSERT INTO twaccounts VALUES (?,?,?,?);
-        ''', (datetime.now(), handle, followers, description))
+        INSERT INTO twaccounts VALUES (?,?,?,?,?);
+        ''', (datetime.now(), handle, category, followers, description))
     conn.commit()
     conn.close()
 
@@ -40,18 +38,18 @@ else:
 conn = sqlite3.connect('social_data2.db')
 cur = conn.cursor()
 cur.execute('''CREATE TABLE IF NOT EXISTS twaccounts
-    (FetchDate Date, Handle Text, Followers Integer, Description Text)
+    (FetchDate Date, Handle Text, Category Text, Followers Integer, Description Text)
     ''')
 conn.commit()
 conn.close()
 
-# Iterate over handles and hit the API with each
+#Iterate over handles and hit the API with each
 for handle in handles_list:
-    print 'Fetching @' + handle
+    print 'Fetching @' + handle[0]
     try:
-        user = api.GetUser(screen_name=handle)
+        user = api.GetUser(screen_name=handle[0])
         followers = user.GetFollowersCount()
         description = user.GetDescription()
-        insert_db(handle, followers, description)
+        insert_db(handle[0], handle[1], followers, description)
     except:
-        print '-- ' + handle + ' not found'
+        print '-- ' + handle[0] + ' not found'
