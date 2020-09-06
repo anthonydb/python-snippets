@@ -4,10 +4,10 @@
 
 import twitter
 
-api = twitter.Api(consumer_key='J3F9fHP2O3uGktYgZBpPwQ',
-                  consumer_secret='Fks5IfWRd44wPGPKowLXgJd71CN016FRBxg1v8QcU',
-                  access_token_key='18682941-MYSJikMeMHkkYAkt84JvLxxJGQ5QCgfbdH8CKJJ4',
-                  access_token_secret='DhDFftDP4MDxDbzZpm9aBJUQyKvi2JQ708mGXmtyU')
+api = twitter.Api(consumer_key='your-consumer-key',
+                  consumer_secret='your-consumer-secret',
+                  access_token_key='your-access-token-key',
+                  access_token_secret='your-access-token-secret')
 
 # set a handle
 handle = 'anthonydb'
